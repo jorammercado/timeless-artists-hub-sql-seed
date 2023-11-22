@@ -1,4 +1,5 @@
 const artworks = require("./artworks.json")
+const famousArtists = require("./famousArtists.json")
 const fs = require('fs')
 
 const artistIndex = []
@@ -11,32 +12,8 @@ count = 0
 
 for (let i = 0; i < artworks.length; i++) {
 
-    if (artworks[i].Artist !== "Amedeo Modigliani" && artworks[i].Artist !== "Vasiliy Kandinskiy" &&
-        artworks[i].Artist !== "Diego Rivera" && artworks[i].Artist !== "Claude Monet" &&
-        artworks[i].Artist !== "Rene Magritte" && artworks[i].Artist !== "Salvador Dali" &&
-        artworks[i].Artist !== "Edouard Manet" && artworks[i].Artist !== "Andrei Rublev" &&
-        artworks[i].Artist !== "Vincent van Gogh" && artworks[i].Artist !== "Gustav Klimt" &&
-        artworks[i].Artist !== "Hieronymus Bosch" && artworks[i].Artist !== "Kazimir Malevich" &&
-        artworks[i].Artist !== "Mikhail Vrubel" && artworks[i].Artist !== "Pablo Picasso" &&
-        artworks[i].Artist !== "Peter Paul Rubens" && artworks[i].Artist !== "Pierre-Auguste Renoir" &&
-        artworks[i].Artist !== "Francisco Goya" && artworks[i].Artist !== "Frida Kahlo" &&
-        artworks[i].Artist !== "El Greco" && artworks[i].Artist !== "Albrecht Dürer" &&
-        artworks[i].Artist !== "Alfred Sisley" && artworks[i].Artist !== "Pieter Bruegel" &&
-        artworks[i].Artist !== "Marc Chagall" && artworks[i].Artist !== "Giotto di Bondone" &&
-        artworks[i].Artist !== "Sandro Botticelli" && artworks[i].Artist !== "Caravaggio" &&
-        artworks[i].Artist !== "Leonardo da Vinci" && artworks[i].Artist !== "Diego Velazquez" &&
-        artworks[i].Artist !== "Henri Matisse" && artworks[i].Artist !== "Jan van Eyck" &&
-        artworks[i].Artist !== "Edgar Degas" && artworks[i].Artist !== "Rembrandt" &&
-        artworks[i].Artist !== "Titian" && artworks[i].Artist !== "Henri de Toulouse-Lautrec" &&
-        artworks[i].Artist !== "Gustave Courbet" && artworks[i].Artist !== "Camille Pissarro" &&
-        artworks[i].Artist !== "William Turner" && artworks[i].Artist !== "Edvard Munch" &&
-        artworks[i].Artist !== "Paul Cezanne" && artworks[i].Artist !== "Eugene Delacroix" &&
-        artworks[i].Artist !== "Henri Rousseau" && artworks[i].Artist !== "Georges Seurat" &&
-        artworks[i].Artist !== "Paul Klee" && artworks[i].Artist !== "Piet Mondrian" &&
-        artworks[i].Artist !== "Joan Miro" && artworks[i].Artist !== "Andy Warhol" &&
-        artworks[i].Artist !== "Paul Gauguin" && artworks[i].Artist !== "Raphael" &&
-        artworks[i].Artist !== "Michelangelo" && artworks[i].Artist !== "Jackson Pollock")
-            continue
+    if( !famousArtists.includes(artworks[i].Artist) )
+        continue
 
     let style = artworks[i].Style,
         artwork_name = artworks[i].Artwork,
