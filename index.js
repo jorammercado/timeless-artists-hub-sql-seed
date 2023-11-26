@@ -18,7 +18,7 @@ for (let i = 0; i < artworks.length; i++) {
     let style = artworks[i].Style,
         artwork_name = artworks[i].Artwork,
         artist_name = artworks[i].Artist,
-        date = Number(artworks[i].Date),
+        date = (artworks[i].Date),
         image_link = artworks[i].Link
 
     if (typeof style === "string")
@@ -44,17 +44,17 @@ for (let i = 0; i < artworks.length; i++) {
     })
 
     formatResultSQLArtWorks += `('${result[count].artist_id}', ` + `'${result[count].artist_name}',`+
-        ` '${result[count].artwork_name}', '${result[count].style}', ${result[count].date},`+
+        ` '${result[count].artwork_name}', '${result[count].style}', '${result[count].date}',`+
         ` '${result[count].image_link}', ${result[count].is_favorite} ),\n`
     
     count++
 }
 
-fs.writeFile('OutputSQLArtWorks.txt', formatResultSQLArtWorks, (err) => {
+fs.writeFile('OutputSQLArtWorks.sql', formatResultSQLArtWorks, (err) => {
     if (err) throw err
 })
 
-fs.writeFile('OutputSQLArtists.txt', formatResultSQLArtists, (err) => {
+fs.writeFile('OutputSQLArtists.sql', formatResultSQLArtists, (err) => {
     if (err) throw err
 })
 
